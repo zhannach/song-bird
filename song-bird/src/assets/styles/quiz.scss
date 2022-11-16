@@ -1,0 +1,383 @@
+@import './global.css';
+@import './normalize.css';
+
+$main-color: #008966;
+$add-color: grey;
+$main-width: 1200px;
+$border-radius: 10px;
+$border: 1.2px solid $add-color;
+
+@mixin bird-img {
+  width: 200px;
+  height: 155px;
+  border-radius: 10px;
+  background-size: cover;
+}
+
+@mixin pseudo {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #19a582;
+}
+
+.main__container {
+  margin: 0 auto 30px;
+  width: $main-width;
+  flex: 1 1 auto;
+}
+
+.pagination {
+  max-width: $main-width;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: $main-color;
+}
+
+.pagination__items {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.pagination__item {
+  position: relative;
+  font-size: 1.3rem;
+  padding: 0.5rem 2rem;
+  line-height: 1.25;
+  background-color: $main-color;
+  border-color: #007c5d;
+  border: 0 solid transparent;
+}
+
+.pagination__link {
+  color: #fff;
+}
+
+.pagination__item.active {
+  background-color: #00bc8c;
+}
+
+.random-bird {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 25px;
+  background-color: rgb(50, 51, 52);
+  border-radius: $border-radius;
+  border: $border
+}
+
+.random-bird__img {
+  @include bird-img;
+}
+
+.random-bird__item {
+  width: 920px;
+}
+
+.bird__group {
+  position: relative;
+}
+
+.bird__title {
+  font-size: 3rem;
+  line-height: 1.0;
+  padding-top: 15px;
+}
+
+.bird__score {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  font-size: 2rem;
+}
+
+.bird__player {
+  margin-bottom: 10px;
+}
+
+.audio-player {
+  display: flex;
+  margin-top: 30px;
+  width: 90%;
+}
+
+.audio-player__button {
+  -webkit-transition: .2s;
+  transition: .2s;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #00bc8c;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  background-color: rgb(50, 51, 52);
+  ;
+}
+
+.btn-svg {
+  -webkit-transition: .2s;
+  transition: .2s;
+  max-width: 18px;
+  max-height: 18px;
+  color: #54b1c1;
+
+  &.pause {
+    display: none;
+  }
+}
+
+.btn-svg-pause {
+  display: none;
+
+  &.pres {
+    display: block;
+  }
+}
+
+.audio-player__timebar {
+  flex: 1 1;
+  margin-top: 10px;
+  position: relative;
+}
+
+
+.timebar__line {
+  -webkit-appearance: none;
+  margin-right: 15px;
+  height: 4px;
+  width: 100%;
+  cursor: ew-resize;
+  background: $add-color;
+  border-radius: 5px;
+  // background-image: linear-gradient(to right,
+  //     rgb(0, 188, 140) 0%, rgb(61, 133, 140) 2.31184%,
+  //     rgb(115, 115, 115) 2.31184%, rgb(115, 115, 115) 100%);
+  background-size: 40% 100%;
+  background-repeat: no-repeat;
+}
+
+.timebar__progress {
+  @extend .timebar__line;
+  background-color: #00bc8c;
+  position: absolute;
+  top: 10px;
+  width: 5px;
+  transition: 0.25s;
+  z-index: 1;
+}
+
+
+.btn-volume {
+  align-self: flex-end;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(50, 51, 52);
+  border: none;
+  position: absolute;
+}
+
+
+.btn-volume__mute {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(50, 51, 52);
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.btn-volume__sound {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(50, 51, 52);
+  &.active {
+    display: none;
+  }
+}
+
+
+.timebar__line::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #00bc8c;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  top: -7px;
+  left: 20px;
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 20%);
+  cursor: ew-resize;
+  z-index: 2;
+
+  &:hover {
+    background: #008966;
+    ;
+  }
+}
+
+.volume-slider {
+  -webkit-appearance: none;
+  margin: 20px 15px 0 0;
+  height: 4px;
+  width: 15%;
+  cursor: ew-resize;
+  border-radius: 5px;
+  background: linear-gradient(to right,
+      rgb(0, 188, 140) 0%, rgb(61, 133, 140) 2.31184%,
+      rgb(115, 115, 115) 2.31184%, rgb(115, 115, 115) 100%);
+  background-repeat: no-repeat;
+
+  &::-webkit-slider-thumb {
+    @extend .timebar__line;
+  }
+}
+
+
+
+.timebar__time {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #d3d3d3;
+  display: flex;
+  justify-content: space-between;
+}
+
+// bird options
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  border-radius: $border-radius;
+}
+
+.options-names {
+  width: 48%;
+}
+
+.bird-names {
+  border-radius: $border-radius;
+  height: 100%;
+}
+
+.bird-name {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #303030;
+  border: $border;
+  font-size: 1.8rem;
+  border-radius: $border-radius;
+    &.wrong {
+      background-color: #dc5050;
+    }
+    &.correct {
+      background-color:#00bc8c;
+    } 
+}
+
+.li-btn {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 15px;
+  border-radius: 50%;
+  -webkit-transition: .1s;
+  transition: .1s;
+  background-color: #444;
+}
+
+
+// bird card
+.bird-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: rgb(50, 51, 52);
+  border-radius: $border-radius;
+  width: 50%;
+  border: $border;
+    &.correct {
+    background-color: rgb(29, 210, 156);
+  } 
+//   &.wrong {
+//     background-color: rgb(233, 27, 27);
+//   }
+}
+
+.instruction {
+  display: block;
+  font-size: 1.5rem;
+}
+
+.bird-card__img {
+  @include bird-img();
+  background-image: url('../img/lastochka.jpg');
+  margin: 0;
+}
+
+.bird-card__item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.bird-card__group {
+  width: 60%;
+  margin-left: 20px;
+}
+
+.bird-card__title {
+  font-size: 1.8rem;
+  padding-top: 10px;
+  ::after{
+    @include pseudo();
+    width: 90%;
+    margin: 8px 0;
+  }
+}
+
+.bird-card__subtitle::after {
+  @include pseudo();
+  width: 90%;
+  margin: 8px 0;
+    &.hide {
+      display: none;
+    }
+}
+
+.bird-card__player {
+  width: 100%;
+}
+
+.bird-card__info {
+  box-sizing: border-box;
+  font-size: 1rem;
+  margin: 20px 10px 10px;
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  height: 45px;
+  margin: 25px 0;
+  background-color: #303030;
+  border: $border;
+  color: #fff !important;
+  font-size: 1.4rem;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border-radius: $border-radius;
+
+  &:hover {
+    background-color: $add-color;
+  }
+}

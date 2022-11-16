@@ -1,0 +1,133 @@
+@import './normalize.css';
+@import './global.css';
+
+
+.main__container {
+  margin: 30px auto 50px;
+  max-width: 1200px;
+  flex: 1 1 auto;
+}
+
+.birds {
+  margin: 30px 0;
+}
+
+.birds__title {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.birds-photo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.bird__photo {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 150px;
+  height: 250px;
+  border: 2px inset #fff;
+  flex: 0 1 30%;
+  margin: 10px;
+}
+
+.info {
+  font-size: 1.8rem;
+  color: rgb(234, 234, 234);
+  text-align: center;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.photo-1 {
+  background-image: url(../img/pneptc.jpg);
+}
+
+.photo-2 {
+  background-image: url(../img/1640046898_22-pofoto-club-p-ptitsi-shchebechut-foto-86.jpg);
+}
+
+.photo-3 {
+  background-image: url(../img/1640046925_3-pofoto-club-p-ptitsi-shchebechut-foto-11.jpg);
+}
+
+.photo-4 {
+  // background-image: url(../img/unnamed.jpg);
+  border: none;
+}
+
+.photo-5 {
+  background-image: url(../img/щегол-1.jpg);
+}
+
+.photo-6 {
+  background-image: url(../img/5e97518baa938.jpg);
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+  width: 180px;
+  height: 55px;
+  background-color: #19a582;
+  font-size: 1.5rem;
+  color: rgb(59, 58, 58);
+  border: 2px solid #b1d2ca;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1c8d71;
+  transform: scale(1.1);
+}
+
+@media(max-width: 1050px) {
+
+  .bird__photo {
+    width: 100px;
+    height: 200px;
+  }
+
+  .info {
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width: 800px) {
+  .info {
+    font-size: 1rem;
+  }
+
+  .birds__title{
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .bird__photo {
+    width: 80px;
+    height: 150px;
+    margin: 3px;
+  }
+}
+
+@media(max-width: 600px) {
+
+  .bird__photo {
+    flex: 0 1 48%;
+  }
+}
+
+@media(max-width: 470px) {
+  .bird__photo {
+    width: 60px;
+    height: 120px;
+  }
+  .bird__photo:last-child {
+    opacity: 0;
+  }
+
+}
+

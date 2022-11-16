@@ -1,0 +1,293 @@
+body {
+  background-color: rgb(87, 91, 93);
+}
+
+.container {
+  margin: 0, auto;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  text-align: left;
+  background-color: rgb(87, 91, 93);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+/* Header____ */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 110px;
+  height: 50px;
+  background-color: rgb(50, 51, 52);
+}
+
+.header__logo {
+  background-image: url('../img/logo.4f82cd73.svg');
+  width: 200px;
+  height: 38px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 10px;
+}
+
+.nav__link {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 15px 10px 15px 45px;
+}
+
+.nav__link.active {
+  color: #19a582;
+  font-size: 1.5rem;
+}
+
+.nav__link:hover {
+  color: rgb(171, 173, 173);
+  ;
+}
+
+/* burger */
+
+.header__burger {
+  display: none;
+  height: 2px;
+  width: 18px;
+  top: 23px;
+  right: 11px;
+  border-radius: 2px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 2001;
+}
+
+.header__burger::before,
+.header__burger::after {
+  content: '';
+  position: absolute;
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  border-radius: 2px;
+}
+
+.header__burger::before {
+  top: -300%;
+}
+
+.header__burger::after {
+  top: 300%;
+}
+
+.header__burger-active {
+  background: rgba(223, 21, 21, 0);
+  transition: all 0.3s ease;
+}
+
+.header__burger-active::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.header__burger-active::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(34, 33, 33, 0.7);
+  z-index: 1000;
+  display: none;
+}
+
+
+/* Footer___________ */
+
+.footer__content {
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  background-color: rgb(50, 51, 52);
+  padding-top: 10px;
+}
+
+.footer__logo {
+  background-image: url('../img/rs_school_js.svg');
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 38px;
+
+}
+
+.github__logo {
+  height: 40px;
+  width: 40px;
+  background-image: url('../img/git-logo.svg');
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer__links {
+  display: flex;
+
+}
+
+.footer__link {
+  color: #fff;
+  margin: 0 70px 10px 10px;
+  font-size: 1.5rem;
+  align-items: flex-start;
+}
+
+.footer__link:hover {
+  color: rgb(171, 173, 173);
+  ;
+}
+
+.link__title {
+  font-size: 1.5rem;
+}
+
+
+.date {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+@media(max-width: 1050px) {
+
+  .header {
+    padding: 0;
+  }
+
+  .nav__link {
+    font-size: 1.5rem;
+    margin: 15px 15px 15px 30px;
+  }
+}
+
+@media(max-width: 640px) {
+  .header__burger {
+    display: inline-block;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .header__nav.active {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(50, 51, 52);
+    width: 100%;
+    height: 200px;
+    z-index: 2001;
+  }
+
+  .header__nav.active .nav__link {
+    color: #fff;
+  }
+
+  .header__nav.active .nav__link:hover {
+    color: rgb(209, 198, 198);
+  }
+
+  .header__nav.active .nav__link.active {
+    color: #19a582;
+  }
+
+  body.has-overlay {
+    overflow: hidden;
+  }
+
+  body.has-overlay .overlay {
+    display: block;
+  }
+
+
+
+}
+
+
+/* footer adaptive */
+@media(max-width: 780px) {
+
+  .link__title {
+    display: none;
+  }
+
+  .github__logo {
+    margin: 0;
+  }
+
+  .footer__link {
+    margin: 0 10px 10px 10px;
+  }
+
+}
+
+@media(max-width: 640px) {
+
+  .footer__content {
+    justify-content: center;
+  }
+
+  .footer__logo {
+    margin-right: 10px;
+  }
+
+  .date {
+    margin-left: 10px;
+
+  }
+}
+
+@media(max-width: 540px) {
+  .footer__logo {
+    width: 80px;
+  }
+
+  .footer__links {
+    margin: 0;
+  }
+
+  .footer__link {
+    font-size: 1.2rem;
+  }
+
+  .github__logo {
+    display: none;
+  }
+}
+
+@media(max-width: 420px) {
+
+  .date {
+    font-size: 1rem;
+  }
+
+  .footer__logo {
+    width: 50px;
+    margin: 0;
+  }
+
+}

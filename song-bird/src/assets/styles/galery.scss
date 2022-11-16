@@ -1,0 +1,197 @@
+@import './global.css';
+@import './normalize.css';
+
+$main-color: #008966;
+$add-color: grey;
+$main-width: 1200px;
+$border-radius: 10px;
+$border: 1.2px solid $add-color;
+
+@mixin bird-img {
+  width: 200px;
+  height: 155px;
+  border-radius: 10px;
+  background-size: cover;
+}
+
+@mixin pseudo {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #19a582;
+}
+
+.galery {
+  height: 100%;
+}
+
+.swiper-container {
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  margin: 150px auto;
+  box-sizing: border-box;
+  width: 800px!important;
+  height: 90%!important;
+}
+
+.swiper-slide {
+  width: 100% !important;
+  height: 60% !important;
+  margin-right: 100px!important;
+}
+
+.bird-card {
+  width: 80%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgb(50, 51, 52);
+  border-radius: $border-radius;
+  width: 50%;
+  border: $border;
+  box-sizing: border-box;
+}
+
+.bird-card__img {
+  @include bird-img();  
+  background-image: url('../img/lastochka.jpg');
+  margin: 0;
+}
+
+.bird-img {
+  @include bird-img(); 
+}
+
+.bird-card__item {
+  display: flex;
+  justify-content: space-between  ;
+  width: 100%;
+}
+
+.bird-card__group {
+  width: 60%;
+  margin-left: 20px;
+  box-sizing: border-box;
+  &.main {
+    width: 75%;
+  }
+}
+
+.bird-card__title {
+  font-size: 1.8rem;
+  padding-top: 10px;
+}
+
+.bird-card__subtitle {
+  display: block;
+  &.hide {
+    display: none;
+  }
+}
+
+.bird-card__subtitle::after {
+  @include pseudo();
+  width: 90%;
+  margin: 8px 0;
+}
+
+.bird-card__player {
+  width: 100%;
+}
+
+.bird-card__info {
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  margin: 10px 10px 10px;
+  display: block;
+  &.hidden {
+    display: none;
+  }
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  height: 45px;
+  margin: 25px 0;
+  background-color: #303030;
+  border: $border;
+  color: #fff!important;
+  font-size: 1.4rem;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border-radius: $border-radius;
+    &:hover {
+    background-color: $add-color;
+    }
+}
+.bird__player {
+  margin-bottom: 10px;
+}
+
+.audio-player {
+  display: flex;
+  margin-top: 30px;
+  width: 90%;
+}
+
+.audio-player__button {
+  -webkit-transition: .2s;
+  transition: .2s;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #00bc8c;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  background-color: rgb(50, 51, 52);;
+}
+
+.btn-svg {
+  -webkit-transition: .2s;
+  transition: .2s;
+  max-width: 18px;
+  max-height: 18px;
+  color: #54b1c1;
+}
+.audio-player__timebar {
+  flex: 1 1;
+  margin-top: 20px;
+  position: relative;
+}
+
+.timebar__line {
+  background: linear-gradient(to right, 
+  rgb(0, 188, 140) 0%, rgb(61, 133, 140) 2.31184%, 
+  rgb(115, 115, 115) 2.31184%, rgb(115, 115, 115) 100%);
+  height: 4px;
+}
+
+.timebar__circle {
+  background-color: $add-color;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  -webkit-transform: translate(-50%,calc(-50% + 2px));
+  transform: translate(-50%,calc(-50% + 2px));
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
+
+.timebar__time {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #d3d3d3;
+  display: flex;
+  justify-content: space-between;
+}
