@@ -56,12 +56,12 @@
           </div>
           <section class="bird-card">
             <div class="instruction">
-              <p>Послушай плеер.</p>
-              <p>Выбери птицу из списка.</p>
+              <p class="instruction__text">Послушай плеер.</p>
+              <p class="instruction__text">Выбери птицу из списка.</p>
             </div>
           </section>
         </section>
-        <button class="btn">Next level</button>
+        <button class="btn-next">Next level</button>
       </div>
     </main>
     <template id="side-item">
@@ -69,14 +69,14 @@
         <div class="bird-card__img">
           <img class="bird-img" src="${item.image}">
         </div>
-        <ul class="bird-card__group">
-          <li class="bird-card__title">
+        <div class="bird-card__group">
+          <div class="bird-card__title">
             <h4>${item.name}</h4>
-          </li>
-          <li class="bird-card__subtitle">
+          </div>
+          <div class="bird-card__subtitle">
             <span>${item.species}</span>
-          </li>
-          <li class="bird-card__player">
+          </div>
+          <div class="bird-card__player">
             <audio class="bird__audio" src="${item.audio}">
             </audio>
             <div class="audio-player">
@@ -125,8 +125,8 @@
                 </div>
               </div>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
       <span class="bird-card__info">
         ${item.description}
