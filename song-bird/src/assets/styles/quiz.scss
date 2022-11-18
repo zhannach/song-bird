@@ -23,16 +23,18 @@ $border: 1.2px solid $add-color;
 
 .main__container {
   margin: 0 auto 30px;
-  width: $main-width;
+  max-width: $main-width;
   flex: 1 1 auto;
 }
 
 .pagination {
   max-width: $main-width;
-  margin-bottom: 25px;
+  margin: 0 20px 25px;
   border-radius: 5px;
   overflow: hidden;
   background-color: $main-color;
+  position: relative;
+  margin-top: 20px;
 }
 
 .pagination__items {
@@ -63,7 +65,7 @@ $border: 1.2px solid $add-color;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  margin-bottom: 25px;
+  margin: 0 20px 25px;
   background-color: rgb(50, 51, 52);
   border-radius: $border-radius;
   border: $border
@@ -89,9 +91,10 @@ $border: 1.2px solid $add-color;
 
 .bird__score {
   position: absolute;
-  top: 0;
+  top: 0px;
   right: 5px;
   font-size: 2rem;
+  z-index: 100;
 }
 
 .bird__player {
@@ -251,14 +254,17 @@ $border: 1.2px solid $add-color;
 
 .options {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   position: relative;
   width: 100%;
+  margin: 0 20px 25px;
   border-radius: $border-radius;
+  box-sizing: border-box;
 }
 
 .options-names {
-  width: 48%;
+  width: 45%;
+  margin-right: 20px;
 }
 
 .bird-names {
@@ -267,6 +273,7 @@ $border: 1.2px solid $add-color;
 }
 
 .bird-name {
+  height: 65px;
   position: relative;
   display: block;
   padding: 0.75rem 1.25rem;
@@ -302,7 +309,7 @@ $border: 1.2px solid $add-color;
   padding: 1rem;
   background-color: rgb(50, 51, 52);
   border-radius: $border-radius;
-  width: 50%;
+  width: 48%;
   border: $border;
     &.correct {
     background-color: rgb(29, 210, 156);
@@ -317,10 +324,12 @@ $border: 1.2px solid $add-color;
   font-size: 1.5rem;
 }
 
+.instruction__text {
+  @extend .instruction
+}
+
 .bird-card__img {
   @include bird-img();
-  background-image: url('../img/lastochka.jpg');
-  margin: 0;
 }
 
 .bird-card__item {
@@ -332,6 +341,7 @@ $border: 1.2px solid $add-color;
 .bird-card__group {
   width: 60%;
   margin-left: 20px;
+  position: relative;
 }
 
 .bird-card__title {
@@ -363,11 +373,11 @@ $border: 1.2px solid $add-color;
   margin: 20px 10px 10px;
 }
 
-.btn {
+.btn-next {
   display: inline-block;
-  width: 100%;
+  min-width: 95%;
   height: 45px;
-  margin: 25px 0;
+  margin: 25px 30px;
   background-color: #303030;
   border: $border;
   color: #fff !important;
@@ -377,7 +387,155 @@ $border: 1.2px solid $add-color;
   transition: .3s;
   border-radius: $border-radius;
 
-  &:hover {
-    background-color: $add-color;
+    &:hover {
+      background-color: rgb(84, 85, 86);
+    }
+    &:active {
+      transform: scale(1.1, 1.1);
+    }
+    &.active {
+      background-color: rgb(115, 115, 115);
+    }
+}
+
+@media (max-width: 1080px) {
+
+  .pagination {
+    margin: 0 0 20px;
+  }
+  .pagination__item {
+    padding: 0.5rem 1rem;;
+  }
+
+  .options-names {
+    width: 35%;
+  }
+  .bird-card{
+    flex: 1 1 55%;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 910px) {
+  .pagination__item {
+    padding: 0.5rem;
+    font-size: 14px;
+  }
+
+  .bird-card__info {
+    font-size: 1rem;
+  }
+
+  .volume-slider {
+    width: 40%;
+  }
+}
+
+@media (max-width: 780px) {
+
+  .options {
+    flex-direction: column;
+  }
+
+  .options-names {
+    width: 94%;
+    margin-bottom: 20px;
+  }
+
+  .bird-name {
+    padding: 0.5rem;
+    font-size: 1rem;
+    height: 45px;
+  }
+
+  .bird-card {
+    width: 94%;
+    padding: 0;
+  }
+
+  .btn-next {
+    min-width: 90%;
+  }
+
+  .pagination__items {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .pagination__items {
+    flex-wrap: wrap;
+    height: 80px;
+  }
+
+  .pagination__item {
+    flex: 1 1 30%;
+  }
+
+  .bird-card {
+    padding: 5px;
+  }
+
+  .bird__score {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  
+  .main__container {
+    margin-bottom: 0;
+  }
+  .random-bird {
+    margin: 0 10px 15px;
+  }
+
+  .options {
+    margin: 0 15px;
+  }
+
+  .btn-next {
+    margin: 25px;
+  }
+
+  .bird-name {
+    height: 35px;
+  }
+
+  .bird-card__item {
+    flex-direction: column;
+    align-content: center!important;
+  }
+  .bird-card .bird-card__group{
+    margin-left: 12px;
+  }
+
+  .bird-card__player .audio-player {
+    margin-top: 10px;
+  }
+
+  .bird-card__item .bird-card__group {
+    width: 90%;
+      &.main {
+        width: 90%;
+      }
+  }
+
+  .bird__score {
+    top: -94%;
+  }
+}
+
+@media (max-width: 340px) {
+  .bird__score {
+    top: 8px;
+  }
+
+  .pagination__item {
+    height: 30px;
+  }
+
+  .pagination__item {
+    padding: 5px;
   }
 }
