@@ -1,5 +1,4 @@
 import '@/assets/styles/gallery.scss';
-import '@/assets/styles/quiz.scss';
 import 'swiper/css'
 import Swiper from 'swiper'
 import birdsData from './data/birds.ru'
