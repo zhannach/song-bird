@@ -41,7 +41,7 @@ import initPlayer from './player'
 
     if (!isFull) {
       item.name = '*****'
-      item.image = '/img/black-bird.jpg'
+      item.image = 'assets/img/black-bird.jpg'
     }
 
     this.randonSection.innerHTML = interpolate(this.playerTemplate.innerHTML, { item })
@@ -93,7 +93,7 @@ import initPlayer from './player'
     // add classes
     // play sound
     if (index === this.currentAnswerIndex) {
-      const succesAudio = new Audio('/sound/success-sound.mp3')
+      const succesAudio = new Audio('assets/sound/success-sound.mp3')
       succesAudio.play()
       this.renderTopPayer(true)
       elem.classList.add('correct')
@@ -105,7 +105,7 @@ import initPlayer from './player'
       score.innerHTML = this.count
 
     } else {
-      const failAudio = new Audio('/sound/failure-sound.mp3');
+      const failAudio = new Audio('assets/sound/failure-sound.mp3');
       elem.classList.add('wrong')
       failAudio.play()
       this.wrongAnswersCount += 1
