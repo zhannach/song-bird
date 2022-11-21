@@ -1,19 +1,13 @@
-  import '@/assets/styles/quiz.scss';
-import '@/play'
 
-// create audio player
-const mainPlayer = document.querySelector('.random-bird'); 
-initPlayer(mainPlayer)
-
-export function initPlayer(randomSection) {
-  const audio = randomSection.querySelector('.bird__audio');
-  const duration = randomSection.querySelector('.duration')
-  const sliderAudio = randomSection.querySelector('.timebar__line')
-  const currentTime = randomSection.querySelector('.current-time')
-  const btnPlay = randomSection.querySelector('.audio-player__button')
-  const btnVolume = randomSection.querySelector('.btn-volume')
-  const volumeSlider = randomSection.querySelector('.volume-slider')
-  const progress = randomSection.querySelector('.timebar__progress')
+export default function initPlayer(playerWrapper) {
+  const audio = playerWrapper.querySelector('.bird__audio');
+  const duration = playerWrapper.querySelector('.duration')
+  const sliderAudio = playerWrapper.querySelector('.timebar__line')
+  const currentTime = playerWrapper.querySelector('.current-time')
+  const btnPlay = playerWrapper.querySelector('.audio-player__button')
+  const btnVolume = playerWrapper.querySelector('.btn-volume')
+  const volumeSlider = playerWrapper.querySelector('.volume-slider')
+  const progress = playerWrapper.querySelector('.timebar__progress')
 
   let playState = 'play';
   let muteState = 'unmute';
@@ -27,8 +21,8 @@ export function initPlayer(randomSection) {
 
   // uptade audio time
   setInterval(() => {
-      currentTime.textContent = convertTime(audio.currentTime)
-      progress.style.width = audio.currentTime / audio.duration * 100 + "%";
+    currentTime.textContent = convertTime(audio.currentTime)
+    progress.style.width = audio.currentTime / audio.duration * 100 + "%";
   }, 500);
 
   function audioEvent(elem) {
@@ -37,53 +31,53 @@ export function initPlayer(randomSection) {
     });
     elem.addEventListener('timeupdate', () => {
       sliderAudio.value = Math.floor(audio.currentTime);
-    })  
-  
+    })
+
     if (audio.readyState > 0) {
       showDuration();
       setEndSleder()
     } else {
       audio.addEventListener('loadedmetadata', () => {
-      showDuration();
-      setEndSleder()
+        showDuration();
+        setEndSleder()
       })
     }
   }
-  
+
   function sliderEvent(elem) {
     elem.addEventListener('input', () => {
       currentTime.textContent = convertTime(sliderAudio.value);
     })
-    
+
     elem.addEventListener('change', () => {
       audio.currentTime = sliderAudio.value;
     })
-    
+
     elem.addEventListener('click', e => {
       const sliderWidth = window.getComputedStyle(sliderAudio).width
       const timeToSeek = e.offsetX / parseInt(sliderWidth) * audio.duration
       audio.currentTime = timeToSeek
     }, false)
   }
-  
+
   function convertTime(secs) {
     const min = Math.floor(secs / 60);
     const sec = Math.floor(secs % 60);
     const returnedSec = sec < 10 ? `0${sec}` : `${sec}`;
     return `0${min}:${returnedSec}`;
   }
-  
+
   function showDuration() {
     duration.textContent = convertTime(audio.duration);
   }
-  
+
   function setEndSleder() {
-     sliderAudio.max = Math.floor(audio.duration);
+    sliderAudio.max = Math.floor(audio.duration);
   }
-    //mute audio
+  //mute audio
   function muteAudio(btn) {
     btn.addEventListener('click', () => {
-      if(muteState === 'unmute') {
+      if (muteState === 'unmute') {
         audio.muted = true;
         muteState = 'mute';
         btnVolume.firstElementChild.classList.toggle('active')
@@ -96,11 +90,11 @@ export function initPlayer(randomSection) {
       }
     })
   }
-  
+
   // play audio
   function playAudio(btn) {
     btn.addEventListener('click', () => {
-      if(playState === 'play') {
+      if (playState === 'play') {
         audio.play();
         playState = 'pause';
         btn.firstElementChild.classList.toggle('pause')
@@ -113,26 +107,12 @@ export function initPlayer(randomSection) {
       }
     })
   }
-  
+
   //change volume
   function changeVolume(slider) {
-    slider.addEventListener("change", function(e) {
+    slider.addEventListener("change", function (e) {
       audio.volume = e.currentTarget.value / 100;
     })
 
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

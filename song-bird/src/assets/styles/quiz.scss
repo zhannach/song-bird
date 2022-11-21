@@ -25,6 +25,10 @@ $border: 1.2px solid $add-color;
   margin: 0 auto 30px;
   max-width: $main-width;
   flex: 1 1 auto;
+  display: block;
+  &.end-game {
+    display: none;
+  }
 }
 
 .pagination {

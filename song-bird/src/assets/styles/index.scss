@@ -21,6 +21,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 80px;
 
 }
 
@@ -69,7 +70,7 @@
 .btn {
   display: block;
   margin: 0 auto;
-  width: 180px;
+  width: 80%;
   height: 55px;
   background-color: #19a582;
   font-size: 1.5rem;
@@ -77,11 +78,16 @@
   border: 2px solid #b1d2ca;
   border-radius: 10px;
   transition: all 0.3s ease;
-}
 
-.btn:hover {
-  background-color: #1c8d71;
-  transform: scale(1.1);
+  &:hover {
+    background-color: #1c8d71;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    background-color: #2e6d5d;
+    transform: scale(1.1);
+  }
 }
 
 @media(max-width: 1050px) {
@@ -101,7 +107,7 @@
     font-size: 1rem;
   }
 
-  .birds__title{
+  .birds__title {
     font-size: 2rem;
     margin-bottom: 10px;
   }
@@ -125,9 +131,9 @@
     width: 60px;
     height: 120px;
   }
+
   .bird__photo:last-child {
     opacity: 0;
   }
 
 }
-

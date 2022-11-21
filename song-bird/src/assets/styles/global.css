@@ -16,7 +16,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
 }
 
 /* Header____ */
@@ -26,6 +25,7 @@ body {
   justify-content: space-between;
   padding: 0 110px;
   height: 50px;
+  width: 100%;
   background-color: rgb(50, 51, 52);
 }
 
@@ -119,6 +119,7 @@ body {
 
 .footer__content {
   display: flex;
+  min-width: 100%;
   justify-content: space-around;
   height: 50px;
   background-color: rgb(50, 51, 52);
@@ -290,4 +291,13 @@ body {
     margin: 0;
   }
 
+  .footer__link {
+    margin: 0 10px;
+  }
+}
+
+@media(max-width: 360px) {
+  .date {
+    display: none;
+  }
 }
