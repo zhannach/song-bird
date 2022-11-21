@@ -31,6 +31,8 @@ $border: 1.2px solid $add-color;
   }
 }
 
+// pagination
+
 .pagination {
   max-width: $main-width;
   margin: 0 20px 25px;
@@ -67,12 +69,18 @@ $border: 1.2px solid $add-color;
 
 .random-bird {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  max-width: 1150px;
   padding: 1rem;
-  margin: 0 20px 25px;
+  margin: 0 30px 25px;
   background-color: rgb(50, 51, 52);
   border-radius: $border-radius;
-  border: $border
+}
+
+.random-bird .bird-card__item {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .random-bird__img {
@@ -83,7 +91,10 @@ $border: 1.2px solid $add-color;
   width: 920px;
 }
 
-.bird__group {
+.random-bird .bird-card__group {
+  width: 75%;
+  margin-left: 60px;
+  position: relative;
   position: relative;
 }
 
@@ -101,7 +112,7 @@ $border: 1.2px solid $add-color;
   z-index: 100;
 }
 
-.bird__player {
+.bird-card__player {
   margin-bottom: 10px;
 }
 
@@ -306,10 +317,10 @@ $border: 1.2px solid $add-color;
 
 
 // bird card
-.bird-card {
+.options .bird-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   padding: 1rem;
   background-color: rgb(50, 51, 52);
   border-radius: $border-radius;
@@ -371,9 +382,9 @@ $border: 1.2px solid $add-color;
   width: 100%;
 }
 
-.bird-card__info {
+.options .bird-card__info {
   box-sizing: border-box;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 20px 10px 10px;
 }
 
@@ -414,6 +425,11 @@ $border: 1.2px solid $add-color;
   .options-names {
     width: 35%;
   }
+
+  .random-bird {
+    margin: 0 20px 25px;
+  }
+
   .bird-card{
     flex: 1 1 55%;
     margin-right: 20px;
@@ -452,9 +468,9 @@ $border: 1.2px solid $add-color;
     height: 45px;
   }
 
-  .bird-card {
+  .options .bird-card {
     width: 94%;
-    padding: 0;
+    padding: 20px;
   }
 
   .btn-next {
