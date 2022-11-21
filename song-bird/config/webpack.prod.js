@@ -10,7 +10,7 @@ module.exports = merge(common, {
   devtool: false,
   output: {
     path: paths.build,
-    publicPath: '/',
+    publicPath: 'https://rolling-scopes-school.github.io/zhannach-JSFE2022Q3/song-bird/dist/',
     filename: 'js/[name].[contenthash].bundle.js',
   },
   module: {
