@@ -1,0 +1,79 @@
+@import './global.css';
+@import './normalize.css';
+
+
+
+@mixin text-decor {
+  color: rgb(234, 234, 234);
+  text-align: center;
+  text-shadow: 2px 2px 0px rgb(0 0 0 / 20%);
+}
+
+.result__container {
+  margin: 0 auto 30px;
+  max-width: 1200px;
+  flex: 1 1 auto;
+  display: none;
+  &.show-result {
+    display: block;
+  }
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.result__title {
+  @include text-decor();
+  font-size: 3.5rem;
+  margin-bottom: 40px;
+  color: #19a582;
+}
+
+.result__text {
+  @include text-decor();
+  font-size: 2.5rem;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.result__btn {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 55px;
+  background-color: #19a582;
+  font-size: 1.5rem;
+  color: rgb(59, 58, 58);
+  border: 2px solid #b1d2ca;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #1c8d71;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    background-color: #2e6d5d;
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 600px) {
+
+  .result__title {
+    font-size: 3rem;
+  }
+
+  .result__text {
+    font-size: 2rem;
+  }
+
+  .result__btn {
+    width: 90%;
+  }
+}

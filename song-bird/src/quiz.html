@@ -22,6 +22,9 @@
         <a class="nav__link active" href="./quiz.html">Викторина</a>
         <a class="nav__link" href="./galery.html">Галерея</a>
       </nav>
+      <button class="header__burger">
+        <span class="burger__item"></span>
+      </button>
     </header>
     <main>
       <div class="main__container">
@@ -54,14 +57,24 @@
             <ul class="bird-names">
             </ul>
           </div>
-          <section class="bird-card">
+          <div class="bird-card">
             <div class="instruction">
               <p class="instruction__text">Послушай плеер.</p>
               <p class="instruction__text">Выбери птицу из списка.</p>
             </div>
-          </section>
+          </div>
         </section>
         <button class="btn-next">Next level</button>
+      </div>
+      <div class="result__container">
+        <section class="result">
+          <h1 class="result__title">Результат</h1>
+          <p class="result__text">
+          </p>
+          <form action="./quiz.html" method="get">
+            <button class="result__btn">Новая игра</button>
+          </form>
+        </section>
       </div>
     </main>
     <template id="side-item">
