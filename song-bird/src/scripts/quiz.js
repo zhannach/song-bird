@@ -8,9 +8,9 @@ import birdsDataEn from './data/birds.en'
 import initMenu from './helpers/menu';
 
 // create audio player
-
-const game = new Game(localStorage.getItem('lang') == 'EN' ? birdsDataEn : birdsDataRu)
 initMenu()
+const game = new Game(localStorage.getItem('lang') == 'EN' ? birdsDataEn : birdsDataRu)
+
 
 
 
