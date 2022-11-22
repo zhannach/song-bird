@@ -135,6 +135,7 @@ export default class Game {
     this.correctAnswerFound = false
     this.paginationSection.children[this.currentSectionIndex].classList.add('active')
     this.paginationSection.children[this.currentSectionIndex - 1].classList.remove('active')
+    this.nextBtn.classList.remove('active')
 
   }
 
