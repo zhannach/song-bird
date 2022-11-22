@@ -21,6 +21,9 @@ $border: 1.2px solid $add-color;
   background-color: #19a582;
 }
 
+.swiper-container {
+  overflow: hidden;
+}
 .swiper-wrapper {
   margin: 150px auto;
   box-sizing: border-box;
