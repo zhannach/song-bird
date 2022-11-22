@@ -2,7 +2,7 @@
 import interpolate from './interpolate'
 import initPlayer from './player'
 
- export default class Game {
+export default class Game {
   maxScore = 30
   count = 0
   wrongAnswersCount = 0
@@ -87,8 +87,9 @@ import initPlayer from './player'
   handleAnswerClick(elem, item, index) {
 
     this.addSideItem(item)
-    if (this.correctAnswerFound) return
-
+    if (this.correctAnswerFound || elem.classList.contains('wrong')) {
+      return
+    }
     // check right or wrong
     // add classes
     // play sound
@@ -120,41 +121,35 @@ import initPlayer from './player'
   }
 
   switchNextSection() {
-    if (!this.correctAnswerFound) return 
+    if (!this.correctAnswerFound) return
     if (this.currentSectionIndex >= this.sectionsData.length - 1) {
       this.showResultPage()
       return
     }
     this.currentSectionIndex += 1
     this.currentAnswerIndex = Math.floor(Math.random() * 6);
-    this.updateCurrentMaxScore()    
+    this.updateCurrentMaxScore()
     // localStorage.setItem('currentGame', JSON.stringify({"currentSectionIndex": this.currentSectionIndex, "currentAnswerIndex": this.currentAnswerIndex, "score": this.count}))
     this.addAnswers(this.currentSectionIndex)
     this.renderTopPayer(false)
     this.correctAnswerFound = false
     this.paginationSection.children[this.currentSectionIndex].classList.add('active')
     this.paginationSection.children[this.currentSectionIndex - 1].classList.remove('active')
-   
+
   }
 
-  showResultPage() {    
+  showResultPage() {
     this.mainEl.classList.add('end-game')
     this.resultEl.classList.add('show-result')
-    const resultTextEl = this.resultEl.querySelector('.result__text')
+    const resultTextEls = this.resultEl.querySelectorAll('.result__text')
+    const resultCount = this.resultEl.querySelector('.score__result')
+    resultCount.innerHTML = this.count
     if (this.count === 30) {
-      resultTextEl.innerHTML = `
-      Вот это результат&#128563<br>
-      Ты прошел игру на максимальное количество баллов.<br>
-      Поздравляю.<br>
-      Ты истинный орнитолог	&#128330.
-      `
+      resultTextEls[0].style.display = ''
+      resultTextEls[1].style.display = 'none'
     } else {
-      resultTextEl.innerHTML = `
-      У тебя получилось пройти эту игру на ${this.count} баллов.<br>
-      Поздравляю &#127881<br>
-      Но я уверен ты можешь лучше.<br>
-      Сыграем еще раз? 
-      `
+      resultTextEls[0].style.display = 'none'
+      resultTextEls[1].style.display = ''
     }
 
   }

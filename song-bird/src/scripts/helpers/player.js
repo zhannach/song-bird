@@ -113,6 +113,5 @@ export default function initPlayer(playerWrapper) {
     slider.addEventListener("change", function (e) {
       audio.volume = e.currentTarget.value / 100;
     })
-
   }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -19,18 +19,21 @@
       <div class="header__logo">
       </div>
       <nav class="header__nav">
-        <a class="nav__link" href="./index.html">Главная</a>
-        <a class="nav__link" href="./quiz.html">Викторина</a>
-        <a class="nav__link active" href="./gallery.html">Галерея</a>
+        <a class="nav__link" href="./index.html" data-lang-nav-main>Главная</a>
+        <a class="nav__link" href="./quiz.html" data-lang-nav-quiz>Викторина</a>
+        <a class="nav__link active" href="./gallery.html" data-lang-nav-gallery>Галерея</a>
       </nav>
       <button class="header__burger">
         <span class="burger__item"></span>
       </button>
     </header>
-    <main class="gallery swiper-container">
-      <section class="bird-cards swiper-wrapper">
-      </section>
-      <div class="swiper-pagination"></div>
+    <main class="gallery">
+      <div class="swiper gallery-swiper">
+        <div class="swiper-wrapper">
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
     </main>
     <footer>
       <div class="footer__content">

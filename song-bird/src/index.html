@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -18,9 +18,9 @@
       <div class="header__logo">
       </div>
       <nav class="header__nav">
-        <a class="nav__link active" href="#">Главная</a>
-        <a class="nav__link" href="./quiz.html">Викторина</a>
-        <a class="nav__link" href="./gallery.html">Галерея</a>
+        <a class="nav__link active" href="#"data-lang-nav-main>Главная</a>
+        <a class="nav__link" href="./quiz.html" data-lang-nav-quiz>Викторина</a>
+        <a class="nav__link" href="./gallery.html" data-lang-nav-gallery>Галерея</a>
 
       </nav>
       <button class="header__burger">
@@ -30,13 +30,13 @@
     <main>
       <div class="main__container">
         <section class="birds">
-          <h1 class="birds__title">Кто поет?</h1>
+          <h1 class="birds__title" data-lang-main-title>Кто поет?</h1>
           <div class="birds-photo">
             <div class="bird__photo photo-1"></div>
             <div class="bird__photo photo-2"></div>
             <div class="bird__photo photo-3"></div>
             <div class="bird__photo photo-4">
-              <p class="info">
+              <p class="info" data-lang-main-text>
                 Знаешь ли ты как поет чайка или жаворонок? <br> А если посложнее. <br>Сумеешь отличить пение грача от
                 стрижа? <br> Давай проверим на сколько ты орнитолог.
               </p>
@@ -46,7 +46,7 @@
           </div>
         </section>
         <form action="./quiz.html" method="get">
-          <button class="btn">Попробуй угадать</button>
+          <button class="btn">Let's try</button>
         </form>
       </div>
     </main>

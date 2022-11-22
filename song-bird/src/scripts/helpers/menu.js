@@ -1,3 +1,5 @@
+import engTrancript from '../data/content.en'
+
 export default function initMenu() {
   const burger = document.querySelector('.header__burger')
   const nav = document.querySelector('.header__nav')
@@ -9,10 +11,9 @@ export default function initMenu() {
   })
 
   const lang = localStorage.getItem('lang')
-
   const switchLang = document.createElement('a')
   switchLang.className = 'nav__link'
-  switchLang.innerHTML = lang === 'EN' ? 'RU' : 'EN' 
+  switchLang.innerHTML = lang === 'EN' ? 'RU' : 'EN'
   switchLang.href = '#'
   nav.appendChild(switchLang)
   switchLang.addEventListener('click', (e) => {
@@ -20,6 +21,16 @@ export default function initMenu() {
     localStorage.setItem('lang', switchLang.innerHTML)
     location.reload()
   })
+
+  if (lang !== 'EN') return
+
+  for (const [key, value] of Object.entries(engTrancript)) {
+    const item = document.querySelector(`[data-lang-${key}]`)
+    if (item) {
+      item.innerHTML = value
+    }
+  }
+
+  document.documentElement.lang = 'en'
+
 }
-
-

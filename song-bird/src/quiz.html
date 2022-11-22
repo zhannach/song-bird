@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -18,9 +18,9 @@
       <div class="header__logo">
       </div>
       <nav class="header__nav">
-        <a class="nav__link" href="./index.html">Главная</a>
-        <a class="nav__link active" href="./quiz.html">Викторина</a>
-        <a class="nav__link" href="./gallery.html">Галерея</a>
+        <a class="nav__link" href="./index.html" data-lang-nav-main>Главная</a>
+        <a class="nav__link active" href="./quiz.html" data-lang-nav-quiz>Викторина</a>
+        <a class="nav__link" href="./gallery.html" data-lang-nav-gallery>Галерея</a>
       </nav>
       <button class="header__burger">
         <span class="burger__item"></span>
@@ -30,23 +30,23 @@
       <div class="main__container">
         <section class="pagination">
           <ul class="pagination__items">
-            <li class="pagination__item active">
+            <li class="pagination__item active"data-lang-pagination1>
               <a class="pagination__link" href="#">Разминка</a>
             </li>
             <li class="pagination__item">
-              <a class="pagination__link" href="#">Воробьиные</a>
+              <a class="pagination__link" href="#" data-lang-pagination2>Воробьиные</a>
             </li>
             <li class="pagination__item">
-              <a class="pagination__link" href="#">Лесные птицы</a>
+              <a class="pagination__link" href="#" data-lang-pagination3>Лесные птицы</a>
             </li>
             <li class="pagination__item">
-              <a class="pagination__link" href="#">Певчие птицы</a>
+              <a class="pagination__link" href="#" data-lang-pagination4>Певчие птицы</a>
             </li>
             <li class="pagination__item">
-              <a class="pagination__link" href="#">Хищные птицы</a>
+              <a class="pagination__link" href="#" data-lang-pagination5>Хищные птицы</a>
             </li>
             <li class="pagination__item">
-              <a class="pagination__link" href="#">Морские птицы</a>
+              <a class="pagination__link" href="#" data-lang-pagination6>Морские птицы</a>
             </li>
           </ul>
         </section>
@@ -59,20 +59,32 @@
           </div>
           <div class="bird-card">
             <div class="instruction">
-              <p class="instruction__text">Послушай плеер.</p>
-              <p class="instruction__text">Выбери птицу из списка.</p>
+              <p class="instruction__text" data-lang-bird-instruction>Послушай плеер. <br> Выбери птицу из списка.</p>
             </div>
           </div>
         </section>
-        <button class="btn-next">Следующий вопрос </button>
+        <button class="btn-next">Next level</button>
       </div>
       <div class="result__container">
         <section class="result">
-          <h1 class="result__title">Результат</h1>
-          <p class="result__text">
+          <h1 class="result__title" data-lang-result-title>
+            Результат
+          </h1>
+          <p class="result__text" data-lang-max-score-text>
+            Вот это результат&#128563<br>
+            Ты прошел игру на максимальное количество баллов.<br>
+            Поздравляю.<br>
+            Ты истинный орнитолог	&#128330.
+          </p>
+          <p class="result__text" data-lang-score-text>
+            У тебя получилось пройти эту игру на 
+            <span class="score__result">0</span> баллов.<br>
+            Поздравляю &#127881<br>
+            Но я уверен ты можешь лучше.<br>
+            Сыграем еще раз? 
           </p>
           <form action="./quiz.html" method="get">
-            <button class="result__btn">Новая игра</button>
+            <button class="result__btn" data-lang-result-btn>Новая игра</button>
           </form>
         </section>
       </div>

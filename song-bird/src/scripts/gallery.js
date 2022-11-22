@@ -1,15 +1,15 @@
 import '@/assets/styles/gallery.scss';
 import 'swiper/css'
 import Swiper from 'swiper'
-import birdsData from './data/birds.ru'
+import birdsDataRu from './data/birds.ru'
+import birdsDataEn from './data/birds.en'
 import interpolate from './helpers/interpolate'
 import initMenu from './helpers/menu';
 import initPlayer from './helpers/player';
 
 function addBirdCards() {
   const cardContainer = document.querySelector('.swiper-wrapper');
-
-
+  const birdsData = localStorage.getItem('lang') == 'EN' ? birdsDataEn : birdsDataRu
   const template = document.querySelector('#gallery-item');
   if (!cardContainer) return
   for (let i = 0; i < birdsData.length; i++) {
@@ -23,14 +23,15 @@ function addBirdCards() {
 addBirdCards()
 initMenu()
 
-const birdSwiper = new Swiper('.swiper-container', {
-  slidesPerView: 1,
-  pagination: '.swiper-pagination',
-  paginationClickable: true,
+const swiper = new Swiper(".gallery-swiper", {
+  slidesPerView: 3,
+  centeredSlides: true,
   spaceBetween: 30,
-  loop: false,
-  speed: 800,
-})
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
 
 const cards = document.querySelectorAll('.swiper-slide')
 cards.forEach(card => {

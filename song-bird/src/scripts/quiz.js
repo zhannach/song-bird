@@ -3,13 +3,16 @@ import '@/assets/styles/result.scss'
 import '@/assets/styles/gallery.scss';
 import '@/scripts/helpers/game'
 import Game from '@/scripts/helpers/game';
-import sectionsData from './data/birds.ru'
+import birdsDataRu from './data/birds.ru'
+import birdsDataEn from './data/birds.en'
 import initMenu from './helpers/menu';
 
 // create audio player
 
-const game = new Game(sectionsData)
+const game = new Game(localStorage.getItem('lang') == 'EN' ? birdsDataEn : birdsDataRu)
 initMenu()
+
+
 
 
 
