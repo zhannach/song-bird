@@ -83,7 +83,6 @@ $border: 1.2px solid $add-color;
 .bird-card__group {
   width: 60%;
   margin-left: 20px;
-  position: relative;
 }
 
 .bird-card__title {
@@ -260,7 +259,7 @@ $border: 1.2px solid $add-color;
   -webkit-appearance: none;
   margin: 20px 15px 0 0;
   height: 4px;
-  width: 15%;
+  width: 20%;
   cursor: ew-resize;
   border-radius: 5px;
   background: linear-gradient(to right,
@@ -334,10 +333,6 @@ $border: 1.2px solid $add-color;
 
   .bird-card__item {
     flex-direction: column;
-  }
-
-  .bird-card__group {
-    width: 90%;
   }
 
   .bird-card__info {

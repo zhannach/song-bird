@@ -1,6 +1,5 @@
 import '@/assets/styles/quiz.scss';
 import '@/assets/styles/result.scss'
-import '@/assets/styles/gallery.scss';
 import '@/scripts/helpers/game'
 import Game from '@/scripts/helpers/game';
 import birdsDataRu from './data/birds.ru'
